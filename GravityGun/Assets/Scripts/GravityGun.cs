@@ -19,7 +19,7 @@ public class GravityGun : MonoBehaviour
     {
         if (grabbedRB)
         {
-            grabbedRB.MovePosition(Vector3.Lerp(grabbedRB.position, objectHolder.transform.position, Time.deltaTime * lerpSpeed));
+            grabbedRB.MovePosition(objectHolder.transform.position);
 
             if (Input.GetMouseButtonDown(0))
             {
