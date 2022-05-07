@@ -17,6 +17,8 @@ public class GravityGun : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(cam.transform.forward);
+
         if (grabbedRB)
         {
             grabbedRB.MovePosition(objectHolder.transform.position);
