@@ -18,19 +18,19 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lifeTime > 0)
-        {
-            lifeTime -= Time.deltaTime;
-            if (lifeTime <= 0)
-            {
-                Destruction();
-            }
-        }
+        //if (lifeTime > 0)
+        //{
+        //    lifeTime -= Time.deltaTime;
+        //    if (lifeTime <= 0)
+        //    {
+        //        Destruction();
+        //    }
+        //}
 
-        if (transform.position.y <= -20)
-        {
-            Destruction();
-        }
+        //if (transform.position.y <= -20)
+        //{
+        //    Destruction();
+        //}
     }
 
     private void FixedUpdate()
@@ -61,8 +61,8 @@ public class Ball : MonoBehaviour
     //    }
     //}
 
-    void Destruction()
-    {
-        Destroy(this.gameObject);
-    }
+    //void Destruction()
+    //{
+    //    Destroy(this.gameObject);
+    //}
 }
