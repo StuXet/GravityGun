@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float lifeTime = 5000f;
     public bool inWindZone = false;
     public GameObject windZone;
 
@@ -13,24 +12,6 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if (lifeTime > 0)
-        //{
-        //    lifeTime -= Time.deltaTime;
-        //    if (lifeTime <= 0)
-        //    {
-        //        Destruction();
-        //    }
-        //}
-
-        //if (transform.position.y <= -20)
-        //{
-        //    Destruction();
-        //}
     }
 
     private void FixedUpdate()
@@ -52,17 +33,4 @@ public class Ball : MonoBehaviour
             inWindZone = false;
         }
     }
-
-    //void OnCollisionEnter(Collision coll)
-    //{
-    //    if (coll.gameObject.name == "destroyer")
-    //    {
-    //        Destruction();
-    //    }
-    //}
-
-    //void Destruction()
-    //{
-    //    Destroy(this.gameObject);
-    //}
 }
