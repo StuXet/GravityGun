@@ -10,11 +10,6 @@ public class GravityGun : MonoBehaviour
 
     Rigidbody grabbedRB;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Debug.Log(cam.transform.forward);
