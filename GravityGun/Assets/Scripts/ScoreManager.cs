@@ -32,4 +32,12 @@ public class ScoreManager : MonoBehaviour
         if(highScore < score)
         PlayerPrefs.SetInt("highscore", score);
     }
+
+    public void RemovePoints()
+    {
+        score -= 1;
+        scoreText.text = score.ToString() + " Points";
+        if (highScore < score)
+            PlayerPrefs.SetInt("highscore", score);
+    }
 }
