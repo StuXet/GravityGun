@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
         {
             scoreZone = coll.gameObject;
             inScoreZone = true;
-            ScoreManager.instace.AddPoint();
+            ScoreManager.instance.AddPoint();
             Destruction();
         }
     }
@@ -49,5 +49,10 @@ public class Ball : MonoBehaviour
         {
             inScoreZone = false;
         }
+    }
+
+    void Destruction()
+    {
+        Destroy(this.gameObject);
     }
 }

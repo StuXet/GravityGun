@@ -8,6 +8,6 @@ public class PointInstance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ScoreManager.instace.AddPoint();
+        ScoreManager.instance.AddPoint();
     }
 }
