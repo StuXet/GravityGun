@@ -6,8 +6,10 @@ public class Ball : MonoBehaviour
 {
     public bool inWindZone = false;
     public bool inScoreZone = false;
+    public bool inRemoveScoreZone = false;
     public GameObject windZone;
     public GameObject scoreZone;
+    public GameObject RemoveScoreZone;
 
     Rigidbody rb;
 
@@ -35,7 +37,14 @@ public class Ball : MonoBehaviour
             scoreZone = coll.gameObject;
             inScoreZone = true;
             ScoreManager.instance.AddPoint();
-            Destruction();
+            //Destruction();
+        }
+        if (coll.gameObject.tag == "RemoveScoreZone")
+        {
+            scoreZone = coll.gameObject;
+            inScoreZone = true;
+            ScoreManager.instance.RemovePoints();
+            //Destruction();
         }
     }
 
@@ -48,6 +57,10 @@ public class Ball : MonoBehaviour
         if (coll.gameObject.tag == "ScoreZone")
         {
             inScoreZone = false;
+        }
+        if (coll.gameObject.tag == "RemovePointZone")
+        {
+            inRemoveScoreZone = false;
         }
     }
 
