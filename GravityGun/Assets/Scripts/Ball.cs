@@ -37,14 +37,14 @@ public class Ball : MonoBehaviour
             scoreZone = coll.gameObject;
             inScoreZone = true;
             ScoreManager.instance.AddPoint();
-            //Destruction();
+            Destruction();
         }
         if (coll.gameObject.tag == "RemoveScoreZone")
         {
             scoreZone = coll.gameObject;
             inScoreZone = true;
             ScoreManager.instance.RemovePoints();
-            //Destruction();
+           Destruction();
         }
     }
 
