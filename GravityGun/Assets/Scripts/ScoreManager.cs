@@ -9,9 +9,11 @@ public class ScoreManager : MonoBehaviour
 
     public Text scoreText;
     public Text highScoreText;
+    public Text throwForceText;
 
     int score = 0;
     int highScore = 0;
+    int throwForce = 20;
 
     private void Awake()
     {
@@ -23,6 +25,18 @@ public class ScoreManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt("highscore", 0);
         scoreText.text = score.ToString() + " Points";
         highScoreText.text = "HighScore: " + highScore.ToString();
+    }
+    private void Update()
+    {
+        throwForceText.text = "Throw Force: " + throwForce.ToString();
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            throwForce++;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            throwForce--;
+        }
     }
 
     public void AddPoint()

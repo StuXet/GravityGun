@@ -5,7 +5,7 @@ using UnityEngine;
 public class GravityGun : MonoBehaviour
 {
     [SerializeField] Camera cam;
-    [SerializeField] float maxGrabDistance = 10f, throwForce = 20f, lerpSpeed = 10f;
+    [SerializeField] float maxGrabDistance = 3f, throwForce = 20f;
     [SerializeField] Transform objectHolder;
 
     Rigidbody grabbedRB;
@@ -13,7 +13,23 @@ public class GravityGun : MonoBehaviour
     void Update()
     {
         Debug.Log(cam.transform.forward);
-
+        GrabbingBehavior();
+        ThrowForce();
+        
+    }
+    void ThrowForce()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            throwForce++;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            throwForce--;
+        }
+    }
+    void GrabbingBehavior()
+    {
         if (grabbedRB)
         {
             grabbedRB.MovePosition(objectHolder.transform.position);
@@ -45,6 +61,6 @@ public class GravityGun : MonoBehaviour
                     }
                 }
             }
-        }    
+        }
     }
 }
