@@ -20,12 +20,15 @@ public class Ball : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Game object get the force from the wind zone
         if(inWindZone) {
             rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
         }
     }
 
-    void OnTriggerEnter(Collider coll) {
+    //Trigger zone that detects coll between game objects
+    void OnTriggerEnter(Collider coll) 
+    {
         if(coll.gameObject.tag == "WindArea")
         {
             windZone = coll.gameObject;

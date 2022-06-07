@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PointInstance : MonoBehaviour
 {
-
-
     private void OnTriggerEnter(Collider other)
     {
         ScoreManager.instance.AddPoint();

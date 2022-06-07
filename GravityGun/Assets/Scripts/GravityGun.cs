@@ -17,6 +17,8 @@ public class GravityGun : MonoBehaviour
         ThrowForce();
         
     }
+
+    //Updates the force in throw force
     void ThrowForce()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
@@ -28,6 +30,11 @@ public class GravityGun : MonoBehaviour
             throwForce--;
         }
     }
+
+    /* Get if player grabbed the game object
+     * Updates the game object position with the camera direction
+     * If player throw the game object it disable his kinematic
+     * And flew in the direction of the camera looking at it with the selected force */
     void GrabbingBehavior()
     {
         if (grabbedRB)
