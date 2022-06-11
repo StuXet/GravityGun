@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+//This script work on any game object that have a rigibody
+public class ThrowableGO : MonoBehaviour
 {
     private bool inWindZone = false;
     private bool inScoreZone = false;
