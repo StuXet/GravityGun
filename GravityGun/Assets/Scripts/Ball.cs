@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public bool inWindZone = false;
-    public bool inScoreZone = false;
-    public bool inRemoveScoreZone = false;
-    public GameObject windZone;
-    public GameObject scoreZone;
-    public GameObject RemoveScoreZone;
+    private bool inWindZone = false;
+    private bool inScoreZone = false;
+    private bool inRemoveScoreZone = false;
+    private GameObject windZone;
+    private GameObject scoreZone;
+    private GameObject RemoveScoreZone;
 
     Rigidbody rb;
 
