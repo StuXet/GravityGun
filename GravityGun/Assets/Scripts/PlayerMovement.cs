@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
 
+    //You can change the player speed, gravity, jump height and ground distance
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
@@ -17,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    /*Check if the player is grounded(if he is grounded he can jump)
+    Move the player by the direction you choice*/
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundmask);

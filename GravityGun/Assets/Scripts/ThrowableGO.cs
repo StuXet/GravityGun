@@ -5,12 +5,12 @@ using UnityEngine;
 //This script work on any game object that have a rigibody
 public class ThrowableGO : MonoBehaviour
 {
-    private bool inWindZone = false;
-    private bool inScoreZone = false;
-    private bool inRemoveScoreZone = false;
-    private GameObject windZone;
-    private GameObject scoreZone;
-    private GameObject RemoveScoreZone;
+    private bool _inWindZone = false;
+    private bool _inScoreZone = false;
+    private bool _inRemoveScoreZone = false;
+    private GameObject _windZone;
+    private GameObject _scoreZone;
+    private GameObject _RemoveScoreZone;
 
     Rigidbody rb;
 
@@ -21,53 +21,54 @@ public class ThrowableGO : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Game object get the force from the wind zone
-        if(inWindZone) {
-            rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
+        //Game object get the force and direction from the wind zone
+        if(_inWindZone) {
+            rb.AddForce(_windZone.GetComponent<WindArea>().direction * _windZone.GetComponent<WindArea>().strength);
         }
     }
 
-    //Trigger zone that detects coll between game objects
+    //Trigger zones that detects coll between game objects
     void OnTriggerEnter(Collider coll) 
     {
         if(coll.gameObject.tag == "WindArea")
         {
-            windZone = coll.gameObject;
-            inWindZone = true;
+            _windZone = coll.gameObject;
+            _inWindZone = true;
         }
 
         if (coll.gameObject.tag == "ScoreZone")
         {
-            scoreZone = coll.gameObject;
-            inScoreZone = true;
+            _scoreZone = coll.gameObject;
+            _inScoreZone = true;
             ScoreManager.instance.AddPoint();
             Destruction();
         }
         if (coll.gameObject.tag == "RemoveScoreZone")
         {
-            scoreZone = coll.gameObject;
-            inScoreZone = true;
+            _scoreZone = coll.gameObject;
+            _inScoreZone = true;
             ScoreManager.instance.RemovePoints();
            Destruction();
         }
     }
 
+    //Exit trigger zone to detect exit from zone
     void OnTriggerExit(Collider coll) {
         if(coll.gameObject.tag == "WindArea")
         {
-            inWindZone = false;
+            _inWindZone = false;
         }
-
         if (coll.gameObject.tag == "ScoreZone")
         {
-            inScoreZone = false;
+            _inScoreZone = false;
         }
         if (coll.gameObject.tag == "RemovePointZone")
         {
-            inRemoveScoreZone = false;
+            _inRemoveScoreZone = false;
         }
     }
 
+    //Destroy game object
     void Destruction()
     {
         Destroy(this.gameObject);

@@ -32,9 +32,9 @@ public class GravityGun : MonoBehaviour
     }
 
     /* Get if player grabbed the game object
-     * Updates the game object position with the camera direction
-     * If player throw the game object it disable his kinematic
-     * And flew in the direction of the camera looking at it with the selected force */
+      Updates the game object position with the camera direction
+      If player throw the game object it disable his kinematic
+      And flew in the direction of the camera looking at it with the selected force */
     void GrabbingBehavior()
     {
         if (grabbedRB)
@@ -48,6 +48,7 @@ public class GravityGun : MonoBehaviour
                 grabbedRB = null;
             }
         }
+        //If the player grab the object it makes the object kinematic to not be affected by the game physics
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (grabbedRB)
